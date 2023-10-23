@@ -18,6 +18,7 @@ app.use(cors());
  
 
 async function createUser(client, newUser) {
+    console.log("CREATE USER !!");
     const existingUser = await client.db("sbDatabase").collection("users").findOne({ email: newUser.email });
 
     if (existingUser) {
@@ -48,7 +49,7 @@ app.post('/register', async  (req,res) => {
             joined: new Date(),
         });
     } catch (error) {
-        res.status(400).json({ error: error.message }); // Return an error response
+        res.status(400).json( "error: unable to register" ); // Return an error response
     }
 });
 
