@@ -11,8 +11,8 @@ const app = express();
 app.use(cors());
 
 
-    // const uri = "mongodb+srv://tgino1994:tgino1994@clustersb.tpm6wa6.mongodb.net/?retryWrites=true&w=majority";
-    const uri = process.env.MONGODB_URI; 
+     const uri = "mongodb+srv://tgino1994:tgino1994@clustersb.tpm6wa6.mongodb.net/?retryWrites=true&w=majority";
+    // const uri = process.env.MONGODB_URI; 
     const client = new MongoClient(uri);
     client.connect();
  
