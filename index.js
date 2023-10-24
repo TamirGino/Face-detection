@@ -13,7 +13,16 @@ const app = express();
     //  const uri = "mongodb+srv://tgino1994:tgino1994@clustersb.tpm6wa6.mongodb.net/?retryWrites=true&w=majority";
     const uri = process.env.MONGODB_URI; 
     const client = new MongoClient(uri);
-    client.connect();
+    // client.connect();
+    client.connect((err) => {
+        if (err) {
+          console.error('Error connecting to MongoDB:', err);
+        } else {
+          console.log('Connected to MongoDB');
+          
+          // You can start your server or perform other database-related operations here.
+        }
+      });
  
 
 async function createUser(client, newUser) {
