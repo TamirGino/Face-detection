@@ -19,9 +19,7 @@ const app = express();
           console.error('Error connecting to MongoDB:', err);
         } else {
           console.log('Connected to MongoDB');
-          
-          // You can start your server or perform other database-related operations here.
-        }
+            }
       });
  
 
