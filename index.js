@@ -1,4 +1,3 @@
-//mongodb+srv://tgino1994:<password>@clustersb.tpm6wa6.mongodb.net/?retryWrites=true&w=majority
 const {MongoClient} = require('mongodb');
 
 const express = require('express');
@@ -8,11 +7,11 @@ const express = require('express');
 
 const app = express();
  app.use(bodyParser.json());
-app.use(cors());
+ app.use(cors());
 
 
-     const uri = "mongodb+srv://tgino1994:tgino1994@clustersb.tpm6wa6.mongodb.net/?retryWrites=true&w=majority";
-    // const uri = process.env.MONGODB_URI; 
+    //  const uri = "mongodb+srv://tgino1994:tgino1994@clustersb.tpm6wa6.mongodb.net/?retryWrites=true&w=majority";
+    const uri = process.env.MONGODB_URI; 
     const client = new MongoClient(uri);
     client.connect();
  
@@ -103,11 +102,11 @@ app.put('/update_entries', async (req, res) => {
 
 
 
-app.get('/', function (req, res) {
+app.post('/', function (req, res) {
     res.send('Server is Running');
   });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || '3000';
 app.listen(PORT, () => {
     console.log(`app is running on port ${PORT}`);
 })
