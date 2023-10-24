@@ -102,7 +102,7 @@ app.put('/update_entries', async (req, res) => {
 
 
 
-app.post('/', function (req, res) {
+app.get('/', function (req, res) {
     res.send('Server is Running');
   });
 
