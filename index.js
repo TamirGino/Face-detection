@@ -56,8 +56,9 @@ app.post('/register', async  (req,res) => {
 
 
 async function getUser(client, userDetails) {
-    const result = await client.db("sbDatabase").collection("users").findOne(userDetails);
-    return result; // Returns user data or null
+    const projection = { password: 0 }; // Exclude the password field
+    const result = await client.db("sbDatabase").collection("users").findOne(userDetails, { projection });
+    return result; // Returns user data without the password
 }
 
 app.post('/signin', async (req, res) => {
@@ -70,7 +71,7 @@ app.post('/signin', async (req, res) => {
         });
 
         if (user) {
-            res.status(200).json({ message: 'Sign-in successful' });
+            res.status(200).json({ message: 'Sign-in successful', user });
         } else {
             res.status(401).json({ message: 'Invalid email or password' });
         }
